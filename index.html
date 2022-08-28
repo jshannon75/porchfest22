@@ -8,9 +8,6 @@
         <meta name="apple-mobile-web-app-capable" content="yes">
         <link rel="stylesheet" href="css/leaflet.css"><link rel="stylesheet" href="css/L.Control.Locate.min.css">
         <link rel="stylesheet" href="css/qgis2web.css"><link rel="stylesheet" href="css/fontawesome-all.min.css">
-        <link rel="stylesheet" href="css/leaflet-search.css">
-        <link rel="stylesheet" href="css/filter.css">
-<link rel="stylesheet" href="css/nouislider.min.css">
         <link rel="stylesheet" href="css/leaflet-control-geocoder.Geocoder.css">
         <style>
         html, body, #map {
@@ -35,15 +32,17 @@
         <script src="js/labelgun.min.js"></script>
         <script src="js/labels.js"></script>
         <script src="js/leaflet-control-geocoder.Geocoder.js"></script>
-        <script src="js/leaflet-search.js"></script>
-        <script src="js/tailDT.js"></script>
-<script src="js/nouislider.min.js"></script>
-<script src="js/wNumb.js"></script>
-        <script src="data/Porchfestperformers_1.js"></script>
+        <script src="data/7PMPerformances_1.js"></script>
+        <script src="data/6PMPerformances_2.js"></script>
+        <script src="data/5PMPerformances_3.js"></script>
+        <script src="data/4PMPerformances_4.js"></script>
+        <script src="data/3PMPerformances_5.js"></script>
+        <script src="data/2PMPerformances_6.js"></script>
+        <script src="data/1PMPerformances_7.js"></script>
         <script>
         var map = L.map('map', {
             zoomControl:true, maxZoom:28, minZoom:1
-        }).fitBounds([[33.9509749863549,-83.41307089263354],[33.9734412688342,-83.37970640202495]]);
+        }).fitBounds([[33.96192472265503,-83.40261067395625],[33.97315786389467,-83.38592842865197]]);
         var hash = new L.Hash(map);
         map.attributionControl.setPrefix('<a href="https://github.com/tomchadwin/qgis2web" target="_blank">qgis2web</a> &middot; <a href="https://leafletjs.com" title="A JS library for interactive maps">Leaflet</a> &middot; <a href="https://qgis.org">QGIS</a>');
         var autolinker = new Autolinker({truncate: {length: 30, location: 'smart'}});
@@ -64,170 +63,31 @@
         });
         layer_Positron_0;
         map.addLayer(layer_Positron_0);
-        function pop_Porchfestperformers_1(feature, layer) {
+        function pop_7PMPerformances_1(feature, layer) {
             var popupContent = '<table>\
                     <tr>\
-                        <td colspan="2">' + (feature.properties['fid'] !== null ? autolinker.link(feature.properties['fid'].toLocaleString()) : '') + '</td>\
-                    </tr>\
-                    <tr>\
-                        <td colspan="2">' + (feature.properties['Host'] !== null ? autolinker.link(feature.properties['Host'].toLocaleString()) : '') + '</td>\
-                    </tr>\
-                    <tr>\
-                        <td colspan="2">' + (feature.properties['Address'] !== null ? autolinker.link(feature.properties['Address'].toLocaleString()) : '') + '</td>\
-                    </tr>\
-                    <tr>\
-                        <td colspan="2">' + (feature.properties['City'] !== null ? autolinker.link(feature.properties['City'].toLocaleString()) : '') + '</td>\
-                    </tr>\
-                    <tr>\
-                        <td colspan="2">' + (feature.properties['State'] !== null ? autolinker.link(feature.properties['State'].toLocaleString()) : '') + '</td>\
-                    </tr>\
-                    <tr>\
-                        <td colspan="2">' + (feature.properties['Zip'] !== null ? autolinker.link(feature.properties['Zip'].toLocaleString()) : '') + '</td>\
-                    </tr>\
-                    <tr>\
-                        <td colspan="2">' + (feature.properties['Neighborhood'] !== null ? autolinker.link(feature.properties['Neighborhood'].toLocaleString()) : '') + '</td>\
-                    </tr>\
-                    <tr>\
-                        <td colspan="2">' + (feature.properties['Time'] !== null ? autolinker.link(feature.properties['Time'].toLocaleString()) : '') + '</td>\
-                    </tr>\
-                    <tr>\
-                        <td colspan="2">' + (feature.properties['Performer'] !== null ? autolinker.link(feature.properties['Performer'].toLocaleString()) : '') + '</td>\
+                        <td colspan="2"><b>' + (feature.properties['Performer'] !== null ? autolinker.link(feature.properties['Performer'].toLocaleString()) : '') + ' (' + (feature.properties['Genre'] !== null ? autolinker.link(feature.properties['Genre'].toLocaleString()) : '') + ')</b></td>\
                     </tr>\
                     <tr>\
                         <td colspan="2">' + (feature.properties['Find Their Music:'] !== null ? autolinker.link(feature.properties['Find Their Music:'].toLocaleString()) : '') + '</td>\
-                    </tr>\
-                    <tr>\
+                    </tr>\					<tr>\
                         <td colspan="2">' + (feature.properties['Donate to the Artist:'] !== null ? autolinker.link(feature.properties['Donate to the Artist:'].toLocaleString()) : '') + '</td>\
                     </tr>\
-                    <tr>\
-                        <td colspan="2">' + (feature.properties['Other Links'] !== null ? autolinker.link(feature.properties['Other Links'].toLocaleString()) : '') + '</td>\
+					<tr>\
+                        <td colspan="2">' + (feature.properties['Time'] !== null ? autolinker.link(feature.properties['Time'].toLocaleString()) : '')+ ', ' + (feature.properties['Address'] !== null ? autolinker.link(feature.properties['Address'].toLocaleString()) : '') + '</td>\
                     </tr>\
                     <tr>\
-                        <td colspan="2">' + (feature.properties['Genre'] !== null ? autolinker.link(feature.properties['Genre'].toLocaleString()) : '') + '</td>\
-                    </tr>\
-                    <tr>\
-                        <td colspan="2">' + (feature.properties['fulladd'] !== null ? autolinker.link(feature.properties['fulladd'].toLocaleString()) : '') + '</td>\
-                    </tr>\
-                    <tr>\
-                        <td colspan="2">' + (feature.properties['nhood'] !== null ? autolinker.link(feature.properties['nhood'].toLocaleString()) : '') + '</td>\
-                    </tr>\
-                    <tr>\
-                        <td colspan="2">' + (feature.properties['row_num'] !== null ? autolinker.link(feature.properties['row_num'].toLocaleString()) : '') + '</td>\
-                    </tr>\
-                    <tr>\
-                        <td colspan="2">' + (feature.properties['label_id'] !== null ? autolinker.link(feature.properties['label_id'].toLocaleString()) : '') + '</td>\
-                    </tr>\
-                    <tr>\
-                        <td colspan="2">' + (feature.properties['lon'] !== null ? autolinker.link(feature.properties['lon'].toLocaleString()) : '') + '</td>\
-                    </tr>\
-                    <tr>\
-                        <td colspan="2">' + (feature.properties['lat'] !== null ? autolinker.link(feature.properties['lat'].toLocaleString()) : '') + '</td>\
+                        <td colspan="2">' + (feature.properties['Neighborhood'] !== null ? autolinker.link(feature.properties['Neighborhood'].toLocaleString()) : '') + '</td>\
                     </tr>\
                 </table>';
             layer.bindPopup(popupContent, {maxHeight: 400});
         }
 
-        function style_Porchfestperformers_1_0(feature) {
+        function style_7PMPerformances_1_0(feature) {
             switch(String(feature.properties['Time'])) {
-                case '1:00 PM':
-                    return {
-                pane: 'pane_Porchfestperformers_1',
-                radius: 6.8,
-                opacity: 1,
-                color: 'rgba(104,100,100,1.0)',
-                dashArray: '',
-                lineCap: 'butt',
-                lineJoin: 'miter',
-                weight: 1,
-                fill: true,
-                fillOpacity: 1,
-                fillColor: 'rgba(155,185,255,1.0)',
-                interactive: true,
-            }
-                    break;
-                case '2:00 PM':
-                    return {
-                pane: 'pane_Porchfestperformers_1',
-                radius: 6.8,
-                opacity: 1,
-                color: 'rgba(106,106,106,1.0)',
-                dashArray: '',
-                lineCap: 'butt',
-                lineJoin: 'miter',
-                weight: 1,
-                fill: true,
-                fillOpacity: 1,
-                fillColor: 'rgba(213,227,253,1.0)',
-                interactive: true,
-            }
-                    break;
-                case '3:00 PM':
-                    return {
-                pane: 'pane_Porchfestperformers_1',
-                radius: 6.8,
-                opacity: 1,
-                color: 'rgba(126,126,126,1.0)',
-                dashArray: '',
-                lineCap: 'butt',
-                lineJoin: 'miter',
-                weight: 1,
-                fill: true,
-                fillOpacity: 1,
-                fillColor: 'rgba(248,251,200,1.0)',
-                interactive: true,
-            }
-                    break;
-                case '4:00 PM':
-                    return {
-                pane: 'pane_Porchfestperformers_1',
-                radius: 6.8,
-                opacity: 1,
-                color: 'rgba(120,119,111,1.0)',
-                dashArray: '',
-                lineCap: 'butt',
-                lineJoin: 'miter',
-                weight: 1,
-                fill: true,
-                fillOpacity: 1,
-                fillColor: 'rgba(244,234,189,1.0)',
-                interactive: true,
-            }
-                    break;
-                case '5:00 PM':
-                    return {
-                pane: 'pane_Porchfestperformers_1',
-                radius: 6.8,
-                opacity: 1,
-                color: 'rgba(132,131,122,1.0)',
-                dashArray: '',
-                lineCap: 'butt',
-                lineJoin: 'miter',
-                weight: 1,
-                fill: true,
-                fillOpacity: 1,
-                fillColor: 'rgba(239,223,205,1.0)',
-                interactive: true,
-            }
-                    break;
-                case '6:00 PM':
-                    return {
-                pane: 'pane_Porchfestperformers_1',
-                radius: 6.8,
-                opacity: 1,
-                color: 'rgba(108,108,105,1.0)',
-                dashArray: '',
-                lineCap: 'butt',
-                lineJoin: 'miter',
-                weight: 1,
-                fill: true,
-                fillOpacity: 1,
-                fillColor: 'rgba(255,197,127,1.0)',
-                interactive: true,
-            }
-                    break;
                 case '7:00 PM':
                     return {
-                pane: 'pane_Porchfestperformers_1',
+                pane: 'pane_7PMPerformances_1',
                 radius: 6.8,
                 opacity: 1,
                 color: 'rgba(95,95,89,1.0)',
@@ -241,44 +101,383 @@
                 interactive: true,
             }
                     break;
-                default:
+            }
+        }
+        map.createPane('pane_7PMPerformances_1');
+        map.getPane('pane_7PMPerformances_1').style.zIndex = 401;
+        map.getPane('pane_7PMPerformances_1').style['mix-blend-mode'] = 'normal';
+        var layer_7PMPerformances_1 = new L.geoJson(json_7PMPerformances_1, {
+            attribution: '',
+            interactive: true,
+            dataVar: 'json_7PMPerformances_1',
+            layerName: 'layer_7PMPerformances_1',
+            pane: 'pane_7PMPerformances_1',
+            onEachFeature: pop_7PMPerformances_1,
+            pointToLayer: function (feature, latlng) {
+                var context = {
+                    feature: feature,
+                    variables: {}
+                };
+                return L.circleMarker(latlng, style_7PMPerformances_1_0(feature));
+            },
+        });
+        bounds_group.addLayer(layer_7PMPerformances_1);
+        map.addLayer(layer_7PMPerformances_1);
+        function pop_6PMPerformances_2(feature, layer) {
+            var popupContent = '<table>\
+                    <tr>\
+                        <td colspan="2"><b>' + (feature.properties['Performer'] !== null ? autolinker.link(feature.properties['Performer'].toLocaleString()) : '') + ' (' + (feature.properties['Genre'] !== null ? autolinker.link(feature.properties['Genre'].toLocaleString()) : '') + ')</b></td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['Find Their Music:'] !== null ? autolinker.link(feature.properties['Find Their Music:'].toLocaleString()) : '') + '</td>\
+                    </tr>\					<tr>\
+                        <td colspan="2">' + (feature.properties['Donate to the Artist:'] !== null ? autolinker.link(feature.properties['Donate to the Artist:'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+					<tr>\
+                        <td colspan="2">' + (feature.properties['Time'] !== null ? autolinker.link(feature.properties['Time'].toLocaleString()) : '')+ ', ' + (feature.properties['Address'] !== null ? autolinker.link(feature.properties['Address'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['Neighborhood'] !== null ? autolinker.link(feature.properties['Neighborhood'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                </table>';
+            layer.bindPopup(popupContent, {maxHeight: 400});
+        }
+
+        function style_6PMPerformances_2_0(feature) {
+            switch(String(feature.properties['Time'])) {
+                case '6:00 PM':
                     return {
-                pane: 'pane_Porchfestperformers_1',
+                pane: 'pane_6PMPerformances_2',
                 radius: 6.8,
                 opacity: 1,
-                color: 'rgba(157,149,149,1.0)',
+                color: 'rgba(108,108,105,1.0)',
                 dashArray: '',
                 lineCap: 'butt',
                 lineJoin: 'miter',
                 weight: 1,
                 fill: true,
                 fillOpacity: 1,
-                fillColor: 'rgba(148,147,78,1.0)',
+                fillColor: 'rgba(255,197,127,1.0)',
                 interactive: true,
             }
                     break;
             }
         }
-        map.createPane('pane_Porchfestperformers_1');
-        map.getPane('pane_Porchfestperformers_1').style.zIndex = 401;
-        map.getPane('pane_Porchfestperformers_1').style['mix-blend-mode'] = 'normal';
-        var layer_Porchfestperformers_1 = new L.geoJson(json_Porchfestperformers_1, {
+        map.createPane('pane_6PMPerformances_2');
+        map.getPane('pane_6PMPerformances_2').style.zIndex = 402;
+        map.getPane('pane_6PMPerformances_2').style['mix-blend-mode'] = 'normal';
+        var layer_6PMPerformances_2 = new L.geoJson(json_6PMPerformances_2, {
             attribution: '',
             interactive: true,
-            dataVar: 'json_Porchfestperformers_1',
-            layerName: 'layer_Porchfestperformers_1',
-            pane: 'pane_Porchfestperformers_1',
-            onEachFeature: pop_Porchfestperformers_1,
+            dataVar: 'json_6PMPerformances_2',
+            layerName: 'layer_6PMPerformances_2',
+            pane: 'pane_6PMPerformances_2',
+            onEachFeature: pop_6PMPerformances_2,
             pointToLayer: function (feature, latlng) {
                 var context = {
                     feature: feature,
                     variables: {}
                 };
-                return L.circleMarker(latlng, style_Porchfestperformers_1_0(feature));
+                return L.circleMarker(latlng, style_6PMPerformances_2_0(feature));
             },
         });
-        bounds_group.addLayer(layer_Porchfestperformers_1);
-        map.addLayer(layer_Porchfestperformers_1);
+        bounds_group.addLayer(layer_6PMPerformances_2);
+        map.addLayer(layer_6PMPerformances_2);
+        function pop_5PMPerformances_3(feature, layer) {
+            var popupContent = '<table>\
+<tr>\
+                        <td colspan="2"><b>' + (feature.properties['Performer'] !== null ? autolinker.link(feature.properties['Performer'].toLocaleString()) : '') + ' (' + (feature.properties['Genre'] !== null ? autolinker.link(feature.properties['Genre'].toLocaleString()) : '') + ')</b></td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['Find Their Music:'] !== null ? autolinker.link(feature.properties['Find Their Music:'].toLocaleString()) : '') + '</td>\
+                    </tr>\					<tr>\
+                        <td colspan="2">' + (feature.properties['Donate to the Artist:'] !== null ? autolinker.link(feature.properties['Donate to the Artist:'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+					<tr>\
+                        <td colspan="2">' + (feature.properties['Time'] !== null ? autolinker.link(feature.properties['Time'].toLocaleString()) : '')+ ', ' + (feature.properties['Address'] !== null ? autolinker.link(feature.properties['Address'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['Neighborhood'] !== null ? autolinker.link(feature.properties['Neighborhood'].toLocaleString()) : '') + '</td>\
+                    </tr>\                </table>';
+            layer.bindPopup(popupContent, {maxHeight: 400});
+        }
+
+        function style_5PMPerformances_3_0(feature) {
+            switch(String(feature.properties['Time'])) {
+                case '5:00 PM':
+                    return {
+                pane: 'pane_5PMPerformances_3',
+                radius: 6.8,
+                opacity: 1,
+                color: 'rgba(132,131,122,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1,
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(239,223,205,1.0)',
+                interactive: true,
+            }
+                    break;
+            }
+        }
+        map.createPane('pane_5PMPerformances_3');
+        map.getPane('pane_5PMPerformances_3').style.zIndex = 403;
+        map.getPane('pane_5PMPerformances_3').style['mix-blend-mode'] = 'normal';
+        var layer_5PMPerformances_3 = new L.geoJson(json_5PMPerformances_3, {
+            attribution: '',
+            interactive: true,
+            dataVar: 'json_5PMPerformances_3',
+            layerName: 'layer_5PMPerformances_3',
+            pane: 'pane_5PMPerformances_3',
+            onEachFeature: pop_5PMPerformances_3,
+            pointToLayer: function (feature, latlng) {
+                var context = {
+                    feature: feature,
+                    variables: {}
+                };
+                return L.circleMarker(latlng, style_5PMPerformances_3_0(feature));
+            },
+        });
+        bounds_group.addLayer(layer_5PMPerformances_3);
+        map.addLayer(layer_5PMPerformances_3);
+        function pop_4PMPerformances_4(feature, layer) {
+            var popupContent = '<table>\
+<tr>\
+                        <td colspan="2"><b>' + (feature.properties['Performer'] !== null ? autolinker.link(feature.properties['Performer'].toLocaleString()) : '') + ' (' + (feature.properties['Genre'] !== null ? autolinker.link(feature.properties['Genre'].toLocaleString()) : '') + ')</b></td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['Find Their Music:'] !== null ? autolinker.link(feature.properties['Find Their Music:'].toLocaleString()) : '') + '</td>\
+                    </tr>\					<tr>\
+                        <td colspan="2">' + (feature.properties['Donate to the Artist:'] !== null ? autolinker.link(feature.properties['Donate to the Artist:'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+					<tr>\
+                        <td colspan="2">' + (feature.properties['Time'] !== null ? autolinker.link(feature.properties['Time'].toLocaleString()) : '')+ ', ' + (feature.properties['Address'] !== null ? autolinker.link(feature.properties['Address'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['Neighborhood'] !== null ? autolinker.link(feature.properties['Neighborhood'].toLocaleString()) : '') + '</td>\
+                    </tr>\                </table>';
+            layer.bindPopup(popupContent, {maxHeight: 400});
+        }
+
+        function style_4PMPerformances_4_0(feature) {
+            switch(String(feature.properties['Time'])) {
+                case '4:00 PM':
+                    return {
+                pane: 'pane_4PMPerformances_4',
+                radius: 6.8,
+                opacity: 1,
+                color: 'rgba(120,119,111,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1,
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(244,234,189,1.0)',
+                interactive: true,
+            }
+                    break;
+            }
+        }
+        map.createPane('pane_4PMPerformances_4');
+        map.getPane('pane_4PMPerformances_4').style.zIndex = 404;
+        map.getPane('pane_4PMPerformances_4').style['mix-blend-mode'] = 'normal';
+        var layer_4PMPerformances_4 = new L.geoJson(json_4PMPerformances_4, {
+            attribution: '',
+            interactive: true,
+            dataVar: 'json_4PMPerformances_4',
+            layerName: 'layer_4PMPerformances_4',
+            pane: 'pane_4PMPerformances_4',
+            onEachFeature: pop_4PMPerformances_4,
+            pointToLayer: function (feature, latlng) {
+                var context = {
+                    feature: feature,
+                    variables: {}
+                };
+                return L.circleMarker(latlng, style_4PMPerformances_4_0(feature));
+            },
+        });
+        bounds_group.addLayer(layer_4PMPerformances_4);
+        map.addLayer(layer_4PMPerformances_4);
+        function pop_3PMPerformances_5(feature, layer) {
+            var popupContent = '<table>\
+<tr>\
+                        <td colspan="2"><b>' + (feature.properties['Performer'] !== null ? autolinker.link(feature.properties['Performer'].toLocaleString()) : '') + ' (' + (feature.properties['Genre'] !== null ? autolinker.link(feature.properties['Genre'].toLocaleString()) : '') + ')</b></td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['Find Their Music:'] !== null ? autolinker.link(feature.properties['Find Their Music:'].toLocaleString()) : '') + '</td>\
+                    </tr>\					<tr>\
+                        <td colspan="2">' + (feature.properties['Donate to the Artist:'] !== null ? autolinker.link(feature.properties['Donate to the Artist:'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+					<tr>\
+                        <td colspan="2">' + (feature.properties['Time'] !== null ? autolinker.link(feature.properties['Time'].toLocaleString()) : '')+ ', ' + (feature.properties['Address'] !== null ? autolinker.link(feature.properties['Address'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['Neighborhood'] !== null ? autolinker.link(feature.properties['Neighborhood'].toLocaleString()) : '') + '</td>\
+                    </tr>\                </table>';
+            layer.bindPopup(popupContent, {maxHeight: 400});
+        }
+
+        function style_3PMPerformances_5_0(feature) {
+            switch(String(feature.properties['Time'])) {
+                case '3:00 PM':
+                    return {
+                pane: 'pane_3PMPerformances_5',
+                radius: 6.8,
+                opacity: 1,
+                color: 'rgba(126,126,126,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1,
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(248,251,200,1.0)',
+                interactive: true,
+            }
+                    break;
+            }
+        }
+        map.createPane('pane_3PMPerformances_5');
+        map.getPane('pane_3PMPerformances_5').style.zIndex = 405;
+        map.getPane('pane_3PMPerformances_5').style['mix-blend-mode'] = 'normal';
+        var layer_3PMPerformances_5 = new L.geoJson(json_3PMPerformances_5, {
+            attribution: '',
+            interactive: true,
+            dataVar: 'json_3PMPerformances_5',
+            layerName: 'layer_3PMPerformances_5',
+            pane: 'pane_3PMPerformances_5',
+            onEachFeature: pop_3PMPerformances_5,
+            pointToLayer: function (feature, latlng) {
+                var context = {
+                    feature: feature,
+                    variables: {}
+                };
+                return L.circleMarker(latlng, style_3PMPerformances_5_0(feature));
+            },
+        });
+        bounds_group.addLayer(layer_3PMPerformances_5);
+        map.addLayer(layer_3PMPerformances_5);
+        function pop_2PMPerformances_6(feature, layer) {
+            var popupContent = '<table>\
+<tr>\
+                        <td colspan="2"><b>' + (feature.properties['Performer'] !== null ? autolinker.link(feature.properties['Performer'].toLocaleString()) : '') + ' (' + (feature.properties['Genre'] !== null ? autolinker.link(feature.properties['Genre'].toLocaleString()) : '') + ')</b></td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['Find Their Music:'] !== null ? autolinker.link(feature.properties['Find Their Music:'].toLocaleString()) : '') + '</td>\
+                    </tr>\					<tr>\
+                        <td colspan="2">' + (feature.properties['Donate to the Artist:'] !== null ? autolinker.link(feature.properties['Donate to the Artist:'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+					<tr>\
+                        <td colspan="2">' + (feature.properties['Time'] !== null ? autolinker.link(feature.properties['Time'].toLocaleString()) : '')+ ', ' + (feature.properties['Address'] !== null ? autolinker.link(feature.properties['Address'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['Neighborhood'] !== null ? autolinker.link(feature.properties['Neighborhood'].toLocaleString()) : '') + '</td>\
+                    </tr>\                </table>';
+            layer.bindPopup(popupContent, {maxHeight: 400});
+        }
+
+        function style_2PMPerformances_6_0(feature) {
+            switch(String(feature.properties['Time'])) {
+                case '2:00 PM':
+                    return {
+                pane: 'pane_2PMPerformances_6',
+                radius: 6.8,
+                opacity: 1,
+                color: 'rgba(106,106,106,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1,
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(213,227,253,1.0)',
+                interactive: true,
+            }
+                    break;
+            }
+        }
+        map.createPane('pane_2PMPerformances_6');
+        map.getPane('pane_2PMPerformances_6').style.zIndex = 406;
+        map.getPane('pane_2PMPerformances_6').style['mix-blend-mode'] = 'normal';
+        var layer_2PMPerformances_6 = new L.geoJson(json_2PMPerformances_6, {
+            attribution: '',
+            interactive: true,
+            dataVar: 'json_2PMPerformances_6',
+            layerName: 'layer_2PMPerformances_6',
+            pane: 'pane_2PMPerformances_6',
+            onEachFeature: pop_2PMPerformances_6,
+            pointToLayer: function (feature, latlng) {
+                var context = {
+                    feature: feature,
+                    variables: {}
+                };
+                return L.circleMarker(latlng, style_2PMPerformances_6_0(feature));
+            },
+        });
+        bounds_group.addLayer(layer_2PMPerformances_6);
+        map.addLayer(layer_2PMPerformances_6);
+        function pop_1PMPerformances_7(feature, layer) {
+            var popupContent = '<table>\
+<tr>\
+                        <td colspan="2"><b>' + (feature.properties['Performer'] !== null ? autolinker.link(feature.properties['Performer'].toLocaleString()) : '') + ' (' + (feature.properties['Genre'] !== null ? autolinker.link(feature.properties['Genre'].toLocaleString()) : '') + ')</b></td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['Find Their Music:'] !== null ? autolinker.link(feature.properties['Find Their Music:'].toLocaleString()) : '') + '</td>\
+                    </tr>\					<tr>\
+                        <td colspan="2">' + (feature.properties['Donate to the Artist:'] !== null ? autolinker.link(feature.properties['Donate to the Artist:'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+					<tr>\
+                        <td colspan="2">' + (feature.properties['Time'] !== null ? autolinker.link(feature.properties['Time'].toLocaleString()) : '')+ ', ' + (feature.properties['Address'] !== null ? autolinker.link(feature.properties['Address'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['Neighborhood'] !== null ? autolinker.link(feature.properties['Neighborhood'].toLocaleString()) : '') + '</td>\
+                    </tr>\                </table>';
+            layer.bindPopup(popupContent, {maxHeight: 400});
+        }
+
+        function style_1PMPerformances_7_0(feature) {
+            switch(String(feature.properties['Time'])) {
+                case '1:00 PM':
+                    return {
+                pane: 'pane_1PMPerformances_7',
+                radius: 6.8,
+                opacity: 1,
+                color: 'rgba(104,100,100,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1,
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(155,185,255,1.0)',
+                interactive: true,
+            }
+                    break;
+            }
+        }
+        map.createPane('pane_1PMPerformances_7');
+        map.getPane('pane_1PMPerformances_7').style.zIndex = 407;
+        map.getPane('pane_1PMPerformances_7').style['mix-blend-mode'] = 'normal';
+        var layer_1PMPerformances_7 = new L.geoJson(json_1PMPerformances_7, {
+            attribution: '',
+            interactive: true,
+            dataVar: 'json_1PMPerformances_7',
+            layerName: 'layer_1PMPerformances_7',
+            pane: 'pane_1PMPerformances_7',
+            onEachFeature: pop_1PMPerformances_7,
+            pointToLayer: function (feature, latlng) {
+                var context = {
+                    feature: feature,
+                    variables: {}
+                };
+                return L.circleMarker(latlng, style_1PMPerformances_7_0(feature));
+            },
+        });
+        bounds_group.addLayer(layer_1PMPerformances_7);
+        map.addLayer(layer_1PMPerformances_7);
         var osmGeocoder = new L.Control.Geocoder({
             collapsed: true,
             position: 'topleft',
@@ -290,280 +489,17 @@
         document.getElementsByClassName('leaflet-control-geocoder-icon')[0]
         .title += 'Search for a place';
         var baseMaps = {};
-        L.control.layers(baseMaps,{'Porchfest performers<br /><table><tr><td style="text-align: center;"><img src="legend/Porchfestperformers_1_100PM0.png" /></td><td>1:00 PM</td></tr><tr><td style="text-align: center;"><img src="legend/Porchfestperformers_1_200PM1.png" /></td><td>2:00 PM</td></tr><tr><td style="text-align: center;"><img src="legend/Porchfestperformers_1_300PM2.png" /></td><td>3:00 PM</td></tr><tr><td style="text-align: center;"><img src="legend/Porchfestperformers_1_400PM3.png" /></td><td>4:00 PM</td></tr><tr><td style="text-align: center;"><img src="legend/Porchfestperformers_1_500PM4.png" /></td><td>5:00 PM</td></tr><tr><td style="text-align: center;"><img src="legend/Porchfestperformers_1_600PM5.png" /></td><td>6:00 PM</td></tr><tr><td style="text-align: center;"><img src="legend/Porchfestperformers_1_700PM6.png" /></td><td>7:00 PM</td></tr><tr><td style="text-align: center;"><img src="legend/Porchfestperformers_1_7.png" /></td><td></td></tr></table>': layer_Porchfestperformers_1,"Positron": layer_Positron_0,},{collapsed:false}).addTo(map);
+        L.control.layers(baseMaps,{'1 PM Performances<br />': layer_1PMPerformances_7,'2 PM Performances<br />': layer_2PMPerformances_6,'3 PM Performances<br />': layer_3PMPerformances_5,'4 PM Performances<br />': layer_4PMPerformances_4,'5 PM Performances<br />': layer_5PMPerformances_3,'6 PM Performances<br />': layer_6PMPerformances_2,'7 PM Performances<br />': layer_7PMPerformances_1,},{collapsed:false}).addTo(map);
         setBounds();
-        map.addControl(new L.Control.Search({
-            layer: layer_Porchfestperformers_1,
-            initial: false,
-            hideMarkerOnCollapse: true,
-            propertyName: 'Performer'}));
-        document.getElementsByClassName('search-button')[0].className +=
-         ' fa fa-binoculars';
-        var mapDiv = document.getElementById('map');
-        var row = document.createElement('div');
-        row.className="row";
-        row.id="all";
-        row.style.height = "100%";
-        var col1 = document.createElement('div');
-        col1.className="col9";
-        col1.id = "mapWindow";
-        col1.style.height = "99%";
-        col1.style.width = "80%";
-        col1.style.display = "inline-block";
-        var col2 = document.createElement('div');
-        col2.className="col3";
-        col2.id = "menu";
-        col2.style.display = "inline-block";
-        mapDiv.parentNode.insertBefore(row, mapDiv);
-        document.getElementById("all").appendChild(col1);
-        document.getElementById("all").appendChild(col2);
-        col1.appendChild(mapDiv)
-        var Filters = {"Genre": "str"};
-        function filterFunc() {
-          map.eachLayer(function(lyr){
-          if ("options" in lyr && "dataVar" in lyr["options"]){
-            features = this[lyr["options"]["dataVar"]].features.slice(0);
-            try{
-              for (key in Filters){
-                keyS = key.replace(/[^a-zA-Z0-9_]/g, "")
-                if (Filters[key] == "str" || Filters[key] == "bool"){
-                  var selection = [];
-                  var options = document.getElementById("sel_" + keyS).options
-                  for (var i=0; i < options.length; i++) {
-                    if (options[i].selected) selection.push(options[i].value);
-                  }
-                    try{
-                      if (key in features[0].properties){
-                        for (i = features.length - 1;
-                          i >= 0; --i){
-                          if (selection.indexOf(
-                          features[i].properties[key])<0
-                          && selection.length>0) {
-                          features.splice(i,1);
-                          }
-                        }
-                      }
-                    } catch(err){
-                  }
-                }
-                if (Filters[key] == "int"){
-                  sliderVals =  document.getElementById(
-                    "div_" + keyS).noUiSlider.get();
-                  try{
-                    if (key in features[0].properties){
-                    for (i = features.length - 1; i >= 0; --i){
-                      if (parseInt(features[i].properties[key])
-                          < sliderVals[0]
-                          || parseInt(features[i].properties[key])
-                          > sliderVals[1]){
-                            features.splice(i,1);
-                          }
-                        }
-                      }
-                    } catch(err){
-                    }
-                  }
-                if (Filters[key] == "real"){
-                  sliderVals =  document.getElementById(
-                    "div_" + keyS).noUiSlider.get();
-                  try{
-                    if (key in features[0].properties){
-                    for (i = features.length - 1; i >= 0; --i){
-                      if (features[i].properties[key]
-                          < sliderVals[0]
-                          || features[i].properties[key]
-                          > sliderVals[1]){
-                            features.splice(i,1);
-                          }
-                        }
-                      }
-                    } catch(err){
-                    }
-                  }
-                if (Filters[key] == "date"
-                  || Filters[key] == "datetime"
-                  || Filters[key] == "time"){
-                  try{
-                    if (key in features[0].properties){
-                      HTMLkey = key.replace(/[&\/\\#,+()$~%.'":*?<>{} ]/g, '');
-                      startdate = document.getElementById("dat_" +
-                        HTMLkey + "_date1").value.replace(" ", "T");
-                      enddate = document.getElementById("dat_" +
-                        HTMLkey + "_date2").value.replace(" ", "T");
-                      for (i = features.length - 1; i >= 0; --i){
-                        if (features[i].properties[key] < startdate
-                          || features[i].properties[key] > enddate){
-                          features.splice(i,1);
-                        }
-                      }
-                    }
-                  } catch(err){
-                  }
-                }
-              }
-            } catch(err){
-            }
-          this[lyr["options"]["layerName"]].clearLayers();
-          this[lyr["options"]["layerName"]].addData(features);
-          }
-          })
-        }
-            document.getElementById("menu").appendChild(
-                document.createElement("div"));
-            var div_Genre = document.createElement('div');
-            div_Genre.id = "div_Genre";
-            div_Genre.className= "filterselect";
-            document.getElementById("menu").appendChild(div_Genre);
-            sel_Genre = document.createElement('select');
-            sel_Genre.multiple = true;
-            sel_Genre.size = 10;
-            sel_Genre.id = "sel_Genre";
-            var Genre_options_str = "<option value='' unselected></option>";
-            sel_Genre.onchange = function(){filterFunc()};
-            Genre_options_str  += '<option value="NULL">NULL</option>';
-            Genre_options_str  += '<option value="Acoustic folk">Acoustic folk</option>';
-            Genre_options_str  += '<option value="Acoustic performing songwriter">Acoustic performing songwriter</option>';
-            Genre_options_str  += '<option value="Alt rock">Alt rock</option>';
-            Genre_options_str  += '<option value="Alt rock, pop rock">Alt rock, pop rock</option>';
-            Genre_options_str  += '<option value="Alt-Rock">Alt-Rock</option>';
-            Genre_options_str  += '<option value="Alt-rock">Alt-rock</option>';
-            Genre_options_str  += '<option value="Alt-rock, folk, bluegrass">Alt-rock, folk, bluegrass</option>';
-            Genre_options_str  += '<option value="Alternative R&B">Alternative R&B</option>';
-            Genre_options_str  += '<option value="Alternative Rock">Alternative Rock</option>';
-            Genre_options_str  += '<option value="Alternative Rock--College Rock">Alternative Rock--College Rock</option>';
-            Genre_options_str  += '<option value="Alternative pop">Alternative pop</option>';
-            Genre_options_str  += '<option value="Alternative, indie rock, folk">Alternative, indie rock, folk</option>';
-            Genre_options_str  += '<option value="Alternative/folk rock">Alternative/folk rock</option>';
-            Genre_options_str  += '<option value="Alternative/hip hop">Alternative/hip hop</option>';
-            Genre_options_str  += '<option value="Americana">Americana</option>';
-            Genre_options_str  += '<option value="Americana Roots">Americana Roots</option>';
-            Genre_options_str  += '<option value="Americana, Alternative Country, Southern Rock">Americana, Alternative Country, Southern Rock</option>';
-            Genre_options_str  += '<option value="Blues">Blues</option>';
-            Genre_options_str  += '<option value="Blues, Classic Rock & Americana">Blues, Classic Rock & Americana</option>';
-            Genre_options_str  += '<option value="Botanic rock">Botanic rock</option>';
-            Genre_options_str  += '<option value="Celtic Folk Rock">Celtic Folk Rock</option>';
-            Genre_options_str  += '<option value="Children&apos;s music">Children&apos;s music</option>';
-            Genre_options_str  += '<option value="Classic Rock- Pop- Cover & a couple Originals">Classic Rock- Pop- Cover & a couple Originals</option>';
-            Genre_options_str  += '<option value="Country">Country</option>';
-            Genre_options_str  += '<option value="Country and bluegrass covers of versions of classic rock">Country and bluegrass covers of versions of classic rock</option>';
-            Genre_options_str  += '<option value="Country/Rock">Country/Rock</option>';
-            Genre_options_str  += '<option value="Country/bluegrass/southern rock">Country/bluegrass/southern rock</option>';
-            Genre_options_str  += '<option value="Cover Band">Cover Band</option>';
-            Genre_options_str  += '<option value="Covers - acousitc and metal/synth">Covers - acousitc and metal/synth</option>';
-            Genre_options_str  += '<option value="Covers, multiple genres">Covers, multiple genres</option>';
-            Genre_options_str  += '<option value="Dad rock">Dad rock</option>';
-            Genre_options_str  += '<option value="Dance">Dance</option>';
-            Genre_options_str  += '<option value="Doom Metal">Doom Metal</option>';
-            Genre_options_str  += '<option value="Early jazz">Early jazz</option>';
-            Genre_options_str  += '<option value="Electro Pop">Electro Pop</option>';
-            Genre_options_str  += '<option value="Electronic">Electronic</option>';
-            Genre_options_str  += '<option value="Emo indie">Emo indie</option>';
-            Genre_options_str  += '<option value="Emo, indie-folk">Emo, indie-folk</option>';
-            Genre_options_str  += '<option value="Experimental/Classic Rock">Experimental/Classic Rock</option>';
-            Genre_options_str  += '<option value="Florida Rock">Florida Rock</option>';
-            Genre_options_str  += '<option value="Folk">Folk</option>';
-            Genre_options_str  += '<option value="Folk /acoustic">Folk /acoustic</option>';
-            Genre_options_str  += '<option value="Folk Rock">Folk Rock</option>';
-            Genre_options_str  += '<option value="Folk pop">Folk pop</option>';
-            Genre_options_str  += '<option value="Folk rock">Folk rock</option>';
-            Genre_options_str  += '<option value="Folk-pop">Folk-pop</option>';
-            Genre_options_str  += '<option value="Folk/singer-songwriter">Folk/singer-songwriter</option>';
-            Genre_options_str  += '<option value="Forró Brazilian party music">Forró Brazilian party music</option>';
-            Genre_options_str  += '<option value="Garage Rock">Garage Rock</option>';
-            Genre_options_str  += '<option value="Garage rock">Garage rock</option>';
-            Genre_options_str  += '<option value="Gospel/Broadway">Gospel/Broadway</option>';
-            Genre_options_str  += '<option value="Goth pop">Goth pop</option>';
-            Genre_options_str  += '<option value="Hard rock">Hard rock</option>';
-            Genre_options_str  += '<option value="Hip Hop">Hip Hop</option>';
-            Genre_options_str  += '<option value="Hip-Hop">Hip-Hop</option>';
-            Genre_options_str  += '<option value="Improv zen">Improv zen</option>';
-            Genre_options_str  += '<option value="Indie">Indie</option>';
-            Genre_options_str  += '<option value="Indie Folk">Indie Folk</option>';
-            Genre_options_str  += '<option value="Indie Pop">Indie Pop</option>';
-            Genre_options_str  += '<option value="Indie Pop / Alt Pop / Singer-songwriter">Indie Pop / Alt Pop / Singer-songwriter</option>';
-            Genre_options_str  += '<option value="Indie Rock">Indie Rock</option>';
-            Genre_options_str  += '<option value="Indie folk">Indie folk</option>';
-            Genre_options_str  += '<option value="Indie folk/pop">Indie folk/pop</option>';
-            Genre_options_str  += '<option value="Indie pop/rock">Indie pop/rock</option>';
-            Genre_options_str  += '<option value="Indie punk">Indie punk</option>';
-            Genre_options_str  += '<option value="Indie rock">Indie rock</option>';
-            Genre_options_str  += '<option value="Indie-Folk">Indie-Folk</option>';
-            Genre_options_str  += '<option value="Instrumental magic">Instrumental magic</option>';
-            Genre_options_str  += '<option value="Instrumental surfy Zeppelin">Instrumental surfy Zeppelin</option>';
-            Genre_options_str  += '<option value="Instrumental: Electronics + Percussion">Instrumental: Electronics + Percussion</option>';
-            Genre_options_str  += '<option value="Instrumental: Piano">Instrumental: Piano</option>';
-            Genre_options_str  += '<option value="Instrumental: Surf rock">Instrumental: Surf rock</option>';
-            Genre_options_str  += '<option value="Jam / covers / Rock">Jam / covers / Rock</option>';
-            Genre_options_str  += '<option value="Jazz">Jazz</option>';
-            Genre_options_str  += '<option value="Jazz rock">Jazz rock</option>';
-            Genre_options_str  += '<option value="Jazzy retro pop rock">Jazzy retro pop rock</option>';
-            Genre_options_str  += '<option value="Jewish folk">Jewish folk</option>';
-            Genre_options_str  += '<option value="Jimi Hendrix tribute band">Jimi Hendrix tribute band</option>';
-            Genre_options_str  += '<option value="Karaoke">Karaoke</option>';
-            Genre_options_str  += '<option value="Latinx">Latinx</option>';
-            Genre_options_str  += '<option value="Math Rock">Math Rock</option>';
-            Genre_options_str  += '<option value="Metal">Metal</option>';
-            Genre_options_str  += '<option value="Metal/thrash">Metal/thrash</option>';
-            Genre_options_str  += '<option value="Multiple">Multiple</option>';
-            Genre_options_str  += '<option value="New wave and psychedelic rock">New wave and psychedelic rock</option>';
-            Genre_options_str  += '<option value="Nirvana tribute band">Nirvana tribute band</option>';
-            Genre_options_str  += '<option value="Orchestral">Orchestral</option>';
-            Genre_options_str  += '<option value="Pop-punk covers">Pop-punk covers</option>';
-            Genre_options_str  += '<option value="Pop/rock">Pop/rock</option>';
-            Genre_options_str  += '<option value="Pop; post punk">Pop; post punk</option>';
-            Genre_options_str  += '<option value="Post-punk goth">Post-punk goth</option>';
-            Genre_options_str  += '<option value="Psychedelic electronic">Psychedelic electronic</option>';
-            Genre_options_str  += '<option value="Punk">Punk</option>';
-            Genre_options_str  += '<option value="Punk Rock">Punk Rock</option>';
-            Genre_options_str  += '<option value="Punk rock n roll">Punk rock n roll</option>';
-            Genre_options_str  += '<option value="Punk/avant garde">Punk/avant garde</option>';
-            Genre_options_str  += '<option value="R&B">R&B</option>';
-            Genre_options_str  += '<option value="Rap">Rap</option>';
-            Genre_options_str  += '<option value="Rap/Hiphop">Rap/Hiphop</option>';
-            Genre_options_str  += '<option value="Rock">Rock</option>';
-            Genre_options_str  += '<option value="Rock covers">Rock covers</option>';
-            Genre_options_str  += '<option value="Rock n roll">Rock n roll</option>';
-            Genre_options_str  += '<option value="Rock, folk">Rock, folk</option>';
-            Genre_options_str  += '<option value="Rock, folks">Rock, folks</option>';
-            Genre_options_str  += '<option value="Rock/metalish">Rock/metalish</option>';
-            Genre_options_str  += '<option value="Singer songwriter folk">Singer songwriter folk</option>';
-            Genre_options_str  += '<option value="Singer/Songwriter">Singer/Songwriter</option>';
-            Genre_options_str  += '<option value="Smooth classic rock from 5 decades">Smooth classic rock from 5 decades</option>';
-            Genre_options_str  += '<option value="Song writer, Western, Lounge, Americana">Song writer, Western, Lounge, Americana</option>';
-            Genre_options_str  += '<option value="Sonic Americana">Sonic Americana</option>';
-            Genre_options_str  += '<option value="Synth Dance pop">Synth Dance pop</option>';
-            Genre_options_str  += '<option value="Theatrical Kindie Rock (Indie for all ages)">Theatrical Kindie Rock (Indie for all ages)</option>';
-            Genre_options_str  += '<option value="Traditional country">Traditional country</option>';
-            Genre_options_str  += '<option value="Trip-Hop">Trip-Hop</option>';
-            Genre_options_str  += '<option value="Working class psychedelic">Working class psychedelic</option>';
-            Genre_options_str  += '<option value="Ya&apos;llternative">Ya&apos;llternative</option>';
-            Genre_options_str  += '<option value="pop/folk">pop/folk</option>';
-            sel_Genre.innerHTML = Genre_options_str;
-            div_Genre.appendChild(sel_Genre);
-            var lab_Genre = document.createElement('div');
-            lab_Genre.innerHTML = 'Genre';
-            lab_Genre.className = 'filterlabel';
-            div_Genre.appendChild(lab_Genre);
-            var reset_Genre = document.createElement('div');
-            reset_Genre.innerHTML = 'clear filter';
-            reset_Genre.className = 'filterlabel';
-            reset_Genre.onclick = function() {
-                var options = document.getElementById("sel_Genre").options;
-                for (var i=0; i < options.length; i++) {
-                    options[i].selected = false;
-                }
-                filterFunc();
-            };
-            div_Genre.appendChild(reset_Genre);
-        resetLabels([layer_Porchfestperformers_1]);
+        resetLabels([layer_7PMPerformances_1,layer_6PMPerformances_2,layer_5PMPerformances_3,layer_4PMPerformances_4,layer_3PMPerformances_5,layer_2PMPerformances_6,layer_1PMPerformances_7]);
         map.on("zoomend", function(){
-            resetLabels([layer_Porchfestperformers_1]);
+            resetLabels([layer_7PMPerformances_1,layer_6PMPerformances_2,layer_5PMPerformances_3,layer_4PMPerformances_4,layer_3PMPerformances_5,layer_2PMPerformances_6,layer_1PMPerformances_7]);
         });
         map.on("layeradd", function(){
-            resetLabels([layer_Porchfestperformers_1]);
+            resetLabels([layer_7PMPerformances_1,layer_6PMPerformances_2,layer_5PMPerformances_3,layer_4PMPerformances_4,layer_3PMPerformances_5,layer_2PMPerformances_6,layer_1PMPerformances_7]);
         });
         map.on("layerremove", function(){
-            resetLabels([layer_Porchfestperformers_1]);
+            resetLabels([layer_7PMPerformances_1,layer_6PMPerformances_2,layer_5PMPerformances_3,layer_4PMPerformances_4,layer_3PMPerformances_5,layer_2PMPerformances_6,layer_1PMPerformances_7]);
         });
         </script>
     </body>
