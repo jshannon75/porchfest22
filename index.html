@@ -42,7 +42,7 @@
         <script>
         var map = L.map('map', {
             zoomControl:true, maxZoom:28, minZoom:1
-        }).fitBounds([[33.96192472265503,-83.40261067395625],[33.97315786389467,-83.38592842865197]]);
+        }).fitBounds([[33.95182520117353,-83.41157657567966],[33.97429148365281,-83.3782120850711]]);
         var hash = new L.Hash(map);
         map.attributionControl.setPrefix('<a href="https://github.com/tomchadwin/qgis2web" target="_blank">qgis2web</a> &middot; <a href="https://leafletjs.com" title="A JS library for interactive maps">Leaflet</a> &middot; <a href="https://qgis.org">QGIS</a>');
         var autolinker = new Autolinker({truncate: {length: 30, location: 'smart'}});
@@ -65,16 +65,17 @@
         map.addLayer(layer_Positron_0);
         function pop_7PMPerformances_1(feature, layer) {
             var popupContent = '<table>\
-                    <tr>\
+			        <tr>\
                         <td colspan="2"><b>' + (feature.properties['Performer'] !== null ? autolinker.link(feature.properties['Performer'].toLocaleString()) : '') + ' (' + (feature.properties['Genre'] !== null ? autolinker.link(feature.properties['Genre'].toLocaleString()) : '') + ')</b></td>\
                     </tr>\
                     <tr>\
                         <td colspan="2">' + (feature.properties['Find Their Music:'] !== null ? autolinker.link(feature.properties['Find Their Music:'].toLocaleString()) : '') + '</td>\
-                    </tr>\					<tr>\
+                    </tr>\
+					<tr>\
                         <td colspan="2">' + (feature.properties['Donate to the Artist:'] !== null ? autolinker.link(feature.properties['Donate to the Artist:'].toLocaleString()) : '') + '</td>\
                     </tr>\
 					<tr>\
-                        <td colspan="2">' + (feature.properties['Time'] !== null ? autolinker.link(feature.properties['Time'].toLocaleString()) : '')+ ', ' + (feature.properties['Address'] !== null ? autolinker.link(feature.properties['Address'].toLocaleString()) : '') + '</td>\
+                        <td colspan="2">' + (feature.properties['hour'] !== null ? autolinker.link(feature.properties['hour'].toLocaleString()) : '')+ ', ' + (feature.properties['Address'] !== null ? autolinker.link(feature.properties['Address'].toLocaleString()) : '') + '</td>\
                     </tr>\
                     <tr>\
                         <td colspan="2">' + (feature.properties['Neighborhood'] !== null ? autolinker.link(feature.properties['Neighborhood'].toLocaleString()) : '') + '</td>\
@@ -83,10 +84,8 @@
             layer.bindPopup(popupContent, {maxHeight: 400});
         }
 
-        function style_7PMPerformances_1_0(feature) {
-            switch(String(feature.properties['Time'])) {
-                case '7:00 PM':
-                    return {
+        function style_7PMPerformances_1_0() {
+            return {
                 pane: 'pane_7PMPerformances_1',
                 radius: 6.8,
                 opacity: 1,
@@ -99,8 +98,6 @@
                 fillOpacity: 1,
                 fillColor: 'rgba(241,159,45,1.0)',
                 interactive: true,
-            }
-                    break;
             }
         }
         map.createPane('pane_7PMPerformances_1');
@@ -125,16 +122,17 @@
         map.addLayer(layer_7PMPerformances_1);
         function pop_6PMPerformances_2(feature, layer) {
             var popupContent = '<table>\
-                    <tr>\
+			        <tr>\
                         <td colspan="2"><b>' + (feature.properties['Performer'] !== null ? autolinker.link(feature.properties['Performer'].toLocaleString()) : '') + ' (' + (feature.properties['Genre'] !== null ? autolinker.link(feature.properties['Genre'].toLocaleString()) : '') + ')</b></td>\
                     </tr>\
                     <tr>\
                         <td colspan="2">' + (feature.properties['Find Their Music:'] !== null ? autolinker.link(feature.properties['Find Their Music:'].toLocaleString()) : '') + '</td>\
-                    </tr>\					<tr>\
+                    </tr>\
+					<tr>\
                         <td colspan="2">' + (feature.properties['Donate to the Artist:'] !== null ? autolinker.link(feature.properties['Donate to the Artist:'].toLocaleString()) : '') + '</td>\
                     </tr>\
 					<tr>\
-                        <td colspan="2">' + (feature.properties['Time'] !== null ? autolinker.link(feature.properties['Time'].toLocaleString()) : '')+ ', ' + (feature.properties['Address'] !== null ? autolinker.link(feature.properties['Address'].toLocaleString()) : '') + '</td>\
+                        <td colspan="2">' + (feature.properties['hour'] !== null ? autolinker.link(feature.properties['hour'].toLocaleString()) : '')+ ', ' + (feature.properties['Address'] !== null ? autolinker.link(feature.properties['Address'].toLocaleString()) : '') + '</td>\
                     </tr>\
                     <tr>\
                         <td colspan="2">' + (feature.properties['Neighborhood'] !== null ? autolinker.link(feature.properties['Neighborhood'].toLocaleString()) : '') + '</td>\
@@ -143,10 +141,8 @@
             layer.bindPopup(popupContent, {maxHeight: 400});
         }
 
-        function style_6PMPerformances_2_0(feature) {
-            switch(String(feature.properties['Time'])) {
-                case '6:00 PM':
-                    return {
+        function style_6PMPerformances_2_0() {
+            return {
                 pane: 'pane_6PMPerformances_2',
                 radius: 6.8,
                 opacity: 1,
@@ -159,8 +155,6 @@
                 fillOpacity: 1,
                 fillColor: 'rgba(255,197,127,1.0)',
                 interactive: true,
-            }
-                    break;
             }
         }
         map.createPane('pane_6PMPerformances_2');
@@ -185,27 +179,78 @@
         map.addLayer(layer_6PMPerformances_2);
         function pop_5PMPerformances_3(feature, layer) {
             var popupContent = '<table>\
-<tr>\
-                        <td colspan="2"><b>' + (feature.properties['Performer'] !== null ? autolinker.link(feature.properties['Performer'].toLocaleString()) : '') + ' (' + (feature.properties['Genre'] !== null ? autolinker.link(feature.properties['Genre'].toLocaleString()) : '') + ')</b></td>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['fid'] !== null ? autolinker.link(feature.properties['fid'].toLocaleString()) : '') + '</td>\
                     </tr>\
                     <tr>\
-                        <td colspan="2">' + (feature.properties['Find Their Music:'] !== null ? autolinker.link(feature.properties['Find Their Music:'].toLocaleString()) : '') + '</td>\
-                    </tr>\					<tr>\
-                        <td colspan="2">' + (feature.properties['Donate to the Artist:'] !== null ? autolinker.link(feature.properties['Donate to the Artist:'].toLocaleString()) : '') + '</td>\
+                        <td colspan="2">' + (feature.properties['Host'] !== null ? autolinker.link(feature.properties['Host'].toLocaleString()) : '') + '</td>\
                     </tr>\
-					<tr>\
-                        <td colspan="2">' + (feature.properties['Time'] !== null ? autolinker.link(feature.properties['Time'].toLocaleString()) : '')+ ', ' + (feature.properties['Address'] !== null ? autolinker.link(feature.properties['Address'].toLocaleString()) : '') + '</td>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['Address'] !== null ? autolinker.link(feature.properties['Address'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['City'] !== null ? autolinker.link(feature.properties['City'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['State'] !== null ? autolinker.link(feature.properties['State'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['Zip'] !== null ? autolinker.link(feature.properties['Zip'].toLocaleString()) : '') + '</td>\
                     </tr>\
                     <tr>\
                         <td colspan="2">' + (feature.properties['Neighborhood'] !== null ? autolinker.link(feature.properties['Neighborhood'].toLocaleString()) : '') + '</td>\
-                    </tr>\                </table>';
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['Time'] !== null ? autolinker.link(feature.properties['Time'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['Performer'] !== null ? autolinker.link(feature.properties['Performer'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['Find Their Music:'] !== null ? autolinker.link(feature.properties['Find Their Music:'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['Donate to the Artist:'] !== null ? autolinker.link(feature.properties['Donate to the Artist:'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['Other Links'] !== null ? autolinker.link(feature.properties['Other Links'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['Genre'] !== null ? autolinker.link(feature.properties['Genre'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['fulladd'] !== null ? autolinker.link(feature.properties['fulladd'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['nhood'] !== null ? autolinker.link(feature.properties['nhood'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['hour'] !== null ? autolinker.link(feature.properties['hour'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['row_num'] !== null ? autolinker.link(feature.properties['row_num'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['label_id'] !== null ? autolinker.link(feature.properties['label_id'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['lon'] !== null ? autolinker.link(feature.properties['lon'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['lat'] !== null ? autolinker.link(feature.properties['lat'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['x_new'] !== null ? autolinker.link(feature.properties['x_new'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['y_new'] !== null ? autolinker.link(feature.properties['y_new'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                </table>';
             layer.bindPopup(popupContent, {maxHeight: 400});
         }
 
-        function style_5PMPerformances_3_0(feature) {
-            switch(String(feature.properties['Time'])) {
-                case '5:00 PM':
-                    return {
+        function style_5PMPerformances_3_0() {
+            return {
                 pane: 'pane_5PMPerformances_3',
                 radius: 6.8,
                 opacity: 1,
@@ -218,8 +263,6 @@
                 fillOpacity: 1,
                 fillColor: 'rgba(239,223,205,1.0)',
                 interactive: true,
-            }
-                    break;
             }
         }
         map.createPane('pane_5PMPerformances_3');
@@ -244,27 +287,27 @@
         map.addLayer(layer_5PMPerformances_3);
         function pop_4PMPerformances_4(feature, layer) {
             var popupContent = '<table>\
-<tr>\
+						        <tr>\
                         <td colspan="2"><b>' + (feature.properties['Performer'] !== null ? autolinker.link(feature.properties['Performer'].toLocaleString()) : '') + ' (' + (feature.properties['Genre'] !== null ? autolinker.link(feature.properties['Genre'].toLocaleString()) : '') + ')</b></td>\
                     </tr>\
                     <tr>\
                         <td colspan="2">' + (feature.properties['Find Their Music:'] !== null ? autolinker.link(feature.properties['Find Their Music:'].toLocaleString()) : '') + '</td>\
-                    </tr>\					<tr>\
+                    </tr>\
+					<tr>\
                         <td colspan="2">' + (feature.properties['Donate to the Artist:'] !== null ? autolinker.link(feature.properties['Donate to the Artist:'].toLocaleString()) : '') + '</td>\
                     </tr>\
 					<tr>\
-                        <td colspan="2">' + (feature.properties['Time'] !== null ? autolinker.link(feature.properties['Time'].toLocaleString()) : '')+ ', ' + (feature.properties['Address'] !== null ? autolinker.link(feature.properties['Address'].toLocaleString()) : '') + '</td>\
+                        <td colspan="2">' + (feature.properties['hour'] !== null ? autolinker.link(feature.properties['hour'].toLocaleString()) : '')+ ', ' + (feature.properties['Address'] !== null ? autolinker.link(feature.properties['Address'].toLocaleString()) : '') + '</td>\
                     </tr>\
                     <tr>\
                         <td colspan="2">' + (feature.properties['Neighborhood'] !== null ? autolinker.link(feature.properties['Neighborhood'].toLocaleString()) : '') + '</td>\
-                    </tr>\                </table>';
+                    </tr>\
+                </table>';
             layer.bindPopup(popupContent, {maxHeight: 400});
         }
 
-        function style_4PMPerformances_4_0(feature) {
-            switch(String(feature.properties['Time'])) {
-                case '4:00 PM':
-                    return {
+        function style_4PMPerformances_4_0() {
+            return {
                 pane: 'pane_4PMPerformances_4',
                 radius: 6.8,
                 opacity: 1,
@@ -277,8 +320,6 @@
                 fillOpacity: 1,
                 fillColor: 'rgba(244,234,189,1.0)',
                 interactive: true,
-            }
-                    break;
             }
         }
         map.createPane('pane_4PMPerformances_4');
@@ -303,27 +344,27 @@
         map.addLayer(layer_4PMPerformances_4);
         function pop_3PMPerformances_5(feature, layer) {
             var popupContent = '<table>\
-<tr>\
+						        <tr>\
                         <td colspan="2"><b>' + (feature.properties['Performer'] !== null ? autolinker.link(feature.properties['Performer'].toLocaleString()) : '') + ' (' + (feature.properties['Genre'] !== null ? autolinker.link(feature.properties['Genre'].toLocaleString()) : '') + ')</b></td>\
                     </tr>\
                     <tr>\
                         <td colspan="2">' + (feature.properties['Find Their Music:'] !== null ? autolinker.link(feature.properties['Find Their Music:'].toLocaleString()) : '') + '</td>\
-                    </tr>\					<tr>\
+                    </tr>\
+					<tr>\
                         <td colspan="2">' + (feature.properties['Donate to the Artist:'] !== null ? autolinker.link(feature.properties['Donate to the Artist:'].toLocaleString()) : '') + '</td>\
                     </tr>\
 					<tr>\
-                        <td colspan="2">' + (feature.properties['Time'] !== null ? autolinker.link(feature.properties['Time'].toLocaleString()) : '')+ ', ' + (feature.properties['Address'] !== null ? autolinker.link(feature.properties['Address'].toLocaleString()) : '') + '</td>\
+                        <td colspan="2">' + (feature.properties['hour'] !== null ? autolinker.link(feature.properties['hour'].toLocaleString()) : '')+ ', ' + (feature.properties['Address'] !== null ? autolinker.link(feature.properties['Address'].toLocaleString()) : '') + '</td>\
                     </tr>\
                     <tr>\
                         <td colspan="2">' + (feature.properties['Neighborhood'] !== null ? autolinker.link(feature.properties['Neighborhood'].toLocaleString()) : '') + '</td>\
-                    </tr>\                </table>';
+                    </tr>\
+                </table>';
             layer.bindPopup(popupContent, {maxHeight: 400});
         }
 
-        function style_3PMPerformances_5_0(feature) {
-            switch(String(feature.properties['Time'])) {
-                case '3:00 PM':
-                    return {
+        function style_3PMPerformances_5_0() {
+            return {
                 pane: 'pane_3PMPerformances_5',
                 radius: 6.8,
                 opacity: 1,
@@ -336,8 +377,6 @@
                 fillOpacity: 1,
                 fillColor: 'rgba(248,251,200,1.0)',
                 interactive: true,
-            }
-                    break;
             }
         }
         map.createPane('pane_3PMPerformances_5');
@@ -362,27 +401,27 @@
         map.addLayer(layer_3PMPerformances_5);
         function pop_2PMPerformances_6(feature, layer) {
             var popupContent = '<table>\
-<tr>\
+			        <tr>\
                         <td colspan="2"><b>' + (feature.properties['Performer'] !== null ? autolinker.link(feature.properties['Performer'].toLocaleString()) : '') + ' (' + (feature.properties['Genre'] !== null ? autolinker.link(feature.properties['Genre'].toLocaleString()) : '') + ')</b></td>\
                     </tr>\
                     <tr>\
                         <td colspan="2">' + (feature.properties['Find Their Music:'] !== null ? autolinker.link(feature.properties['Find Their Music:'].toLocaleString()) : '') + '</td>\
-                    </tr>\					<tr>\
+                    </tr>\
+					<tr>\
                         <td colspan="2">' + (feature.properties['Donate to the Artist:'] !== null ? autolinker.link(feature.properties['Donate to the Artist:'].toLocaleString()) : '') + '</td>\
                     </tr>\
 					<tr>\
-                        <td colspan="2">' + (feature.properties['Time'] !== null ? autolinker.link(feature.properties['Time'].toLocaleString()) : '')+ ', ' + (feature.properties['Address'] !== null ? autolinker.link(feature.properties['Address'].toLocaleString()) : '') + '</td>\
+                        <td colspan="2">' + (feature.properties['hour'] !== null ? autolinker.link(feature.properties['hour'].toLocaleString()) : '')+ ', ' + (feature.properties['Address'] !== null ? autolinker.link(feature.properties['Address'].toLocaleString()) : '') + '</td>\
                     </tr>\
                     <tr>\
                         <td colspan="2">' + (feature.properties['Neighborhood'] !== null ? autolinker.link(feature.properties['Neighborhood'].toLocaleString()) : '') + '</td>\
-                    </tr>\                </table>';
+                    </tr>\
+			</table>';
             layer.bindPopup(popupContent, {maxHeight: 400});
         }
 
-        function style_2PMPerformances_6_0(feature) {
-            switch(String(feature.properties['Time'])) {
-                case '2:00 PM':
-                    return {
+        function style_2PMPerformances_6_0() {
+            return {
                 pane: 'pane_2PMPerformances_6',
                 radius: 6.8,
                 opacity: 1,
@@ -395,8 +434,6 @@
                 fillOpacity: 1,
                 fillColor: 'rgba(213,227,253,1.0)',
                 interactive: true,
-            }
-                    break;
             }
         }
         map.createPane('pane_2PMPerformances_6');
@@ -421,27 +458,27 @@
         map.addLayer(layer_2PMPerformances_6);
         function pop_1PMPerformances_7(feature, layer) {
             var popupContent = '<table>\
-<tr>\
+						        <tr>\
                         <td colspan="2"><b>' + (feature.properties['Performer'] !== null ? autolinker.link(feature.properties['Performer'].toLocaleString()) : '') + ' (' + (feature.properties['Genre'] !== null ? autolinker.link(feature.properties['Genre'].toLocaleString()) : '') + ')</b></td>\
                     </tr>\
                     <tr>\
                         <td colspan="2">' + (feature.properties['Find Their Music:'] !== null ? autolinker.link(feature.properties['Find Their Music:'].toLocaleString()) : '') + '</td>\
-                    </tr>\					<tr>\
+                    </tr>\
+					<tr>\
                         <td colspan="2">' + (feature.properties['Donate to the Artist:'] !== null ? autolinker.link(feature.properties['Donate to the Artist:'].toLocaleString()) : '') + '</td>\
                     </tr>\
 					<tr>\
-                        <td colspan="2">' + (feature.properties['Time'] !== null ? autolinker.link(feature.properties['Time'].toLocaleString()) : '')+ ', ' + (feature.properties['Address'] !== null ? autolinker.link(feature.properties['Address'].toLocaleString()) : '') + '</td>\
+                        <td colspan="2">' + (feature.properties['hour'] !== null ? autolinker.link(feature.properties['hour'].toLocaleString()) : '')+ ', ' + (feature.properties['Address'] !== null ? autolinker.link(feature.properties['Address'].toLocaleString()) : '') + '</td>\
                     </tr>\
                     <tr>\
                         <td colspan="2">' + (feature.properties['Neighborhood'] !== null ? autolinker.link(feature.properties['Neighborhood'].toLocaleString()) : '') + '</td>\
-                    </tr>\                </table>';
+                    </tr>\
+                </table>';
             layer.bindPopup(popupContent, {maxHeight: 400});
         }
 
-        function style_1PMPerformances_7_0(feature) {
-            switch(String(feature.properties['Time'])) {
-                case '1:00 PM':
-                    return {
+        function style_1PMPerformances_7_0() {
+            return {
                 pane: 'pane_1PMPerformances_7',
                 radius: 6.8,
                 opacity: 1,
@@ -454,8 +491,6 @@
                 fillOpacity: 1,
                 fillColor: 'rgba(155,185,255,1.0)',
                 interactive: true,
-            }
-                    break;
             }
         }
         map.createPane('pane_1PMPerformances_7');
@@ -489,7 +524,7 @@
         document.getElementsByClassName('leaflet-control-geocoder-icon')[0]
         .title += 'Search for a place';
         var baseMaps = {};
-        L.control.layers(baseMaps,{'1 PM Performances<br />': layer_1PMPerformances_7,'2 PM Performances<br />': layer_2PMPerformances_6,'3 PM Performances<br />': layer_3PMPerformances_5,'4 PM Performances<br />': layer_4PMPerformances_4,'5 PM Performances<br />': layer_5PMPerformances_3,'6 PM Performances<br />': layer_6PMPerformances_2,'7 PM Performances<br />': layer_7PMPerformances_1,},{collapsed:false}).addTo(map);
+        L.control.layers(baseMaps,{'<img src="legend/1PMPerformances_7.png" /> 1 PM Performances': layer_1PMPerformances_7,'<img src="legend/2PMPerformances_6.png" /> 2 PM Performances': layer_2PMPerformances_6,'<img src="legend/3PMPerformances_5.png" /> 3 PM Performances': layer_3PMPerformances_5,'<img src="legend/4PMPerformances_4.png" /> 4 PM Performances': layer_4PMPerformances_4,'<img src="legend/5PMPerformances_3.png" /> 5 PM Performances': layer_5PMPerformances_3,'<img src="legend/6PMPerformances_2.png" /> 6 PM Performances': layer_6PMPerformances_2,'<img src="legend/7PMPerformances_1.png" /> 7 PM Performances': layer_7PMPerformances_1,"Positron": layer_Positron_0,},{collapsed:false}).addTo(map);
         setBounds();
         resetLabels([layer_7PMPerformances_1,layer_6PMPerformances_2,layer_5PMPerformances_3,layer_4PMPerformances_4,layer_3PMPerformances_5,layer_2PMPerformances_6,layer_1PMPerformances_7]);
         map.on("zoomend", function(){
